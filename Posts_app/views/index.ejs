@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <title>Список постів</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Список постів</h1>
+        <button onclick="window.location.href='/posts/create'" class="btn btn-create">Створити новий пост</button>
+        <ul>
+            <% posts.forEach(post => { %>
+                <li>
+                    <h2><%= post.title %></h2>
+                    <p><%= post.description %></p>
+                    <p>Автор: <%= post.author %></p>
+                    <p>Дата створення: <%= post.createdAt.toLocaleDateString('uk-UA') %></p> 
+                    <p>Останнє оновлення: <%= post.updatedAt ? post.updatedAt.toLocaleDateString('uk-UA') : 'Ніколи' %></p>
+                    <div class="btn-group">
+                        <form action="/posts/edit/<%= post._id %>" method="GET" style="display:inline;">
+                            <button type="submit" class="btn btn-edit">Редагувати</button>
+                        </form>
+                        <form action="/posts/delete/<%= post._id %>" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-delete" onclick="return confirm('Ви впевнені, що хочете видалити цей пост?');">Видалити</button>
+                        </form>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>        
+    </div>
+</body>
+</html>
+
+</body>
+</html>
