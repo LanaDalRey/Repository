@@ -1,6 +1,6 @@
 const express = require('express'); //підключення бібліотеки експресс
 const router = express.Router(); // ств роутер для перенапрямлення між сторінками
-const Post = require('../models/postModel'); //імпортувала модель сюди
+const Post = require('../models/postModel'); //імпортувала модель сюди lana
 
 router.get('/', async (req, res) => { // запит гет дістає усі дані з бд і передає в шаблон і зображує шаблон
     const posts = await Post.find(); 
