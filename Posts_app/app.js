@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const postRoutes = require('./controllers/posts');// імпорт модельки 
 
 const app = express();
-const PORT = process.env.PORT || 3000; // визначення порта
+const PORT = process.env.PORT || 3000; 
 
 mongoose.connect('mongodb+srv://user:3h1GyaYD5xH3Lbin@postsdb.z8z0p.mongodb.net/?retryWrites=true&w=majority&appName=postsDB', { 
     // посилання на базу даних хмарну
